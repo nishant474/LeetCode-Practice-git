@@ -1,5 +1,6 @@
 public class Reverse_Integer_7 {
     public static void main(String[] args) {
+        //main
         int x=123;
         System.out.println(reverse(x));
     }
