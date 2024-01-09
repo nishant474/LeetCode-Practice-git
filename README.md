@@ -289,4 +289,53 @@ public class test2 {
 
 
 
+import java.util.Arrays;
+
+public class MirrorInverse {
+
+    public static void main(String[] args) {
+        int[] inputArray = {3, 4, 2, 0, 1};
+
+        // Check if the array is mirror inverse
+        if (isMirrorInverse(inputArray)) {
+            System.out.println("Yes");
+            
+            // Find the inverse array
+            int[] inverseArray = getInverseArray(inputArray);
+
+            // Find the 3rd smallest and 3rd largest elements in the inverse array
+            int thirdSmallest = inverseArray[2];
+            int thirdLargest = inverseArray[inverseArray.length - 3];
+
+            System.out.println("3rd smallest element: " + thirdSmallest);
+            System.out.println("3rd largest element: " + thirdLargest);
+        } else {
+            System.out.println("No");
+        }
+    }
+
+    // Function to check if the array is mirror inverse
+    private static boolean isMirrorInverse(int[] arr) {
+        int n = arr.length;
+
+        for (int i = 0; i < n; i++) {
+            if (arr[arr[i]] != i) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    // Function to get the inverse of the array
+    private static int[] getInverseArray(int[] arr) {
+        int n = arr.length;
+        int[] inverseArray = new int[n];
+
+        for (int i = 0; i < n; i++) {
+            inverseArray[arr[i]] = i;
+        }
+
+        return inverseArray;
+    }
+}
 
